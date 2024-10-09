@@ -1,7 +1,5 @@
 // VARIABLES
 
-const body = document.getElementsByTagName("body")[0];
-
 const defaultColors = ["red", "orange", "yellow", "green", "lightblue", "blue", "purple"];
 
 const onScreenColor = document.getElementById("on_screen_text");
@@ -16,17 +14,17 @@ mainButton.addEventListener("click", function() {
 
 // FUNCTIONS
 
+function getRandomNums(min, max) {
+
+    return Math.floor(Math.random() * (max + 1)) + min;
+
+}
+
 function changeColorArr() {
 
-    const arraySize = defaultColors.length;
+    const randColor = defaultColors[getRandomNums(0, defaultColors.length)];
 
-    randColor = defaultColors[
-        Math.floor(Math.random() * arraySize)
-    ];
-
-    console.log(Math.random() * arraySize);
-
-    body.style.backgroundColor = randColor;
+    document.body.style.backgroundColor = randColor;
 
     onScreenColor.innerHTML = randColor;
     
